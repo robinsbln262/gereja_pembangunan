@@ -1,0 +1,45 @@
+gereja_pembangunan/
+│
+├── admin/
+│   ├── dashboard.php          # Dashboard admin + statistik
+│   ├── pembangunan.php        # CRUD pembangunan (tambah/edit/hapus) + tampilan data
+│   ├── timeline.php           # CRUD timeline (tambah/edit/hapus) + tampilan data
+│   ├── donasi.php             # CRUD donasi (verifikasi, hapus) + daftar donasi
+│   ├── galeri.php             # CRUD galeri (upload gambar, hapus) + tampilan galeri
+│   ├── informasi.php          # CRUD informasi gereja (sejarah, profil, dll)
+│   ├── laporan_keuangan.php   # Laporan Keuangan Masuk & Keluar
+│   ├── login.php              # Form login admin + proses login
+│   └── logout.php             # Proses logout
+│
+├── user/
+│   ├── index.php              # Halaman utama user (home)
+│   ├── donasi.php             # Form donasi + upload bukti + proses donasi
+│   ├── galeri.php             # Tampilan galeri untuk user
+│   ├── pembangunan.php        # Tampilan progres pembangunan untuk user + timeline pembangunan
+│   ├── informasi.php          # Tampilan informasi gereja (sejarah, profil, dll)
+│   └── total_donasi.php       # Tampilan total donasi terkumpul + target
+│
+├── config/
+│   ├── database.php           # Koneksi database
+│   └── session.php            # Session management
+│
+├── core/
+│   ├── functions.php          # Fungsi-fungsi global (upload, validasi, dll)
+│   └── auth.php               # Autentikasi admin (cek login)
+│
+├── includes/
+│   ├── navbar_user.php        # Navbar untuk user (dengan CDN)
+│   ├── navbar_admin.php       # Navbar untuk admin
+│   ├── sidebar_admin.php      # Sidebar untuk admin
+│   └── footer.php             # Footer global
+│
+├── uploads/
+│   ├── galeri/                # Upload gambar galeri
+│   ├── pembangunan/           # Upload gambar pembangunan
+│   └── bukti_donasi/          # Upload bukti transfer donasi
+│   └── informasi/             # Upload gambar pada informasi
+│
+├── vendor/                    # PDF dan Excel(Spreedsheet)
+│
+├── .htaccess                  # Rewrite rule (opsional)
+└── index.php                  # Redirect ke user/index.php atau admin/login.php

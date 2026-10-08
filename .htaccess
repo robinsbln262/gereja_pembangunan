@@ -1,0 +1,32 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Jika file/folder fisik ada
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # 2. ADMIN
+    RewriteCond %{DOCUMENT_ROOT}/gereja_pembangunan/admin/$1.php -f
+    RewriteRule ^admin/([a-zA-Z0-9_-]+)/?$ admin/$1.php [L]
+
+    # 3. BENDAHARA (baru)
+    RewriteCond %{DOCUMENT_ROOT}/gereja_pembangunan/bendahara/$1.php -f
+    RewriteRule ^bendahara/([a-zA-Z0-9_-]+)/?$ bendahara/$1.php [L]
+
+    # 4. USER (root)
+    RewriteCond %{DOCUMENT_ROOT}/gereja_pembangunan/$1.php -f
+    RewriteRule ^([a-zA-Z0-9_-]+)/?$ $1.php [L]
+
+    # Redirect .php ke clean URL (hanya user)
+    RewriteCond %{THE_REQUEST} \s/([^?]+)\.php(\?.*)?\s [NC]
+    RewriteCond %{REQUEST_URI} !^/gereja_pembangunan/admin/ [NC]
+    RewriteCond %{REQUEST_URI} !^/gereja_pembangunan/bendahara/ [NC]
+    RewriteRule ^ /gereja_pembangunan/%1%2 [R=301,L]
+
+    <FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|bak|config\.php|database\.php)$">
+        Require all denied
+    </FilesMatch>
+    Options -Indexes
+    ErrorDocument 404 /gereja_pembangunan/404.php
+</IfModule>
