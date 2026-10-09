@@ -1,6 +1,6 @@
 # Sistem Informasi Pembangunan & Manajemen Gereja
 
-Aplikasi berbasis web sederhana yang dirancang untuk mengelola pendataan donasi, laporan keuangan, publikasi informasi/berita, serta galeri kegiatan pembangunan gereja secara transparan dan terstruktur.
+Aplikasi berbasis web yang dirancang untuk mengelola pendataan donasi, laporan keuangan, publikasi informasi/berita, serta galeri kegiatan pembangunan gereja secara transparan dan terstruktur.
 
 ---
 
